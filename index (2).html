@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lab Interaktif Pengelolaan Limbah Ternak Ruminansia</title>
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+--bg:#f6f4ec;--card:#fff;--tx:#1f2a1d;--mu:#5b6757;--ac:#2f7d3a;--ac2:#e8f3e6;--bd:#d8dccf;--bad:#b3261e;--ok:#2f7d3a}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#141a13;--card:#1d261c;--tx:#e8eee4;--mu:#a2ae9d;--ac:#6fcf7a;--ac2:#243324;--bd:#34412f;--bad:#ff8a80;--ok:#6fcf7a;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#141a13;--card:#1d261c;--tx:#e8eee4;--mu:#a2ae9d;--ac:#6fcf7a;--ac2:#243324;--bd:#34412f;--bad:#ff8a80;--ok:#6fcf7a;color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+.w{max-width:820px;margin:0 auto;padding:16px}
+h1{font-size:1.4rem;margin:.2em 0}h2{font-size:1.15rem;margin:.2em 0 .6em}
+.sub{color:var(--mu);font-size:.9rem}
+nav{display:flex;gap:6px;flex-wrap:wrap;margin:14px 0}
+nav button,.b{border:1px solid var(--bd);background:var(--card);color:var(--tx);padding:8px 14px;border-radius:999px;cursor:pointer;font:inherit;font-size:.92rem}
+nav button.on,.b.p{background:var(--ac);color:#fff;border-color:var(--ac)}
+.c{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px;margin-bottom:14px}
+section{display:none}section.on{display:block}
+label{display:flex;justify-content:space-between;font-size:.92rem;margin-top:10px}
+input[type=range]{width:100%;accent-color:var(--ac)}
+.g{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-top:12px}
+.m{background:var(--ac2);border-radius:10px;padding:10px}.m small{color:var(--mu);display:block}.m b{font-size:1.2rem}
+.bar{height:12px;background:var(--bd);border-radius:6px;overflow:hidden;margin-top:6px}.bar i{display:block;height:100%;background:var(--ac);width:0;transition:width .3s}
+ul{padding-left:1.2em;margin:.3em 0}
+.st{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+.st button{text-align:left}
+.ord{counter-reset:o;list-style:none;padding:0}.ord li{background:var(--ac2);border-radius:8px;padding:8px 10px;margin:6px 0}
+.fb{margin-top:10px;padding:10px;border-radius:10px;background:var(--ac2)}
+.opt{display:block;width:100%;text-align:left;margin:6px 0}
+.ok{border-color:var(--ok)!important;background:var(--ac2)!important}.no{border-color:var(--bad)!important}
+.sc{overflow-x:auto}
+</style>
+</head>
+<body>
+<div class="w">
+<h1>🐄 Lab Interaktif: Pengelolaan Limbah Ternak Ruminansia</h1>
+<div class="sub">Fase F · Kelas XI Agribisnis Ternak Ruminansia (ATR) · SMKN 2 Kerinci<br>Guru Mapel: Yoti Endrianis, A.Md., S.Pd.</div>
+<nav id="nav">
+<button class="on" data-t="cp">Capaian Pembelajaran</button>
+<button data-t="l1">Lab 1: Kompos</button>
+<button data-t="l2">Lab 2: Biourine</button>
+<button data-t="l3">Lab 3: Biogas</button>
+<button data-t="kq">Kuis</button>
+</nav>
+
+<section id="cp" class="on">
+<div class="c"><h2>Capaian Pembelajaran (CP)</h2>
+<p><b>Elemen:</b> Pengelolaan limbah</p>
+<p><b>Capaian:</b> Peserta didik mampu menerapkan pengelolaan limbah serta menciptakan nilai tambah dari limbah tersebut.</p>
+<p><b>Deskripsi materi:</b> Penanganan dan pengelolaan limbah padat dan cair ternak ruminansia.</p></div>
+<div class="c"><h2>Tujuan Pembelajaran</h2><ul>
+<li>Mengidentifikasi jenis limbah padat (feses, sisa pakan) dan cair (urine, air pembersihan kandang).</li>
+<li>Menerapkan pengolahan limbah padat menjadi kompos/pupuk organik.</li>
+<li>Menerapkan pengolahan limbah cair menjadi biourine.</li>
+<li>Menghitung nilai tambah dari produk olahan limbah.</li></ul></div>
+<div class="c"><h2>Cara Memakai</h2><p>Kerjakan Lab 1 dan Lab 2 berurutan, catat hasil di buku praktik, lalu uji pemahaman lewat kuis.</p></div>
+</section>
+
+<section id="l1">
+<div class="c"><h2>Lab 1: Simulasi Kompos Feses Sapi</h2>
+<p class="sub">Atur bahan dan kondisi. Rasio C/N ideal 25–30, kelembapan 50–60%.</p>
+<label><span>Feses sapi (kg)</span><b id="vf">100</b></label><input type="range" id="f" min="20" max="200" value="100">
+<label><span>Jerami / serasah (kg)</span><b id="vj">30</b></label><input type="range" id="j" min="0" max="150" value="30">
+<label><span>Kelembapan (%)</span><b id="vk">55</b></label><input type="range" id="k" min="20" max="80" value="55">
+<label><span>Dekomposer (EM4) (ml/10 kg bahan)</span><b id="vd">10</b></label><input type="range" id="d" min="0" max="30" value="10">
+<label><span>Pembalikan per minggu (kali)</span><b id="vb">2</b></label><input type="range" id="b" min="0" max="7" value="2">
+<div class="g">
+<div class="m"><small>Rasio C/N awal</small><b id="rcn">-</b></div>
+<div class="m"><small>Perkiraan waktu matang</small><b id="rt">-</b></div>
+<div class="m"><small>Skor kualitas</small><b id="rs">-</b></div>
+</div>
+<div class="bar"><i id="rb"></i></div>
+<div class="fb" id="rf"></div></div>
+<div class="c"><h2>Hitung Nilai Tambah</h2>
+<p class="sub">Asumsi: susut bahan 40% menjadi kompos.</p>
+<label><span>Harga kompos (Rp/kg)</span><b id="vh">1500</b></label><input type="range" id="h" min="500" max="4000" step="100" value="1500">
+<label><span>Biaya tenaga &amp; bahan lain (Rp)</span><b id="vc">50000</b></label><input type="range" id="c" min="0" max="300000" step="5000" value="50000">
+<div class="g"><div class="m"><small>Kompos jadi (kg)</small><b id="ky">-</b></div><div class="m"><small>Pendapatan (Rp)</small><b id="pd">-</b></div><div class="m"><small>Keuntungan (Rp)</small><b id="kt">-</b></div></div></div>
+</section>
+
+<section id="l2">
+<div class="c"><h2>Lab 2: Urutkan Langkah Pembuatan Biourine</h2>
+<p class="sub">Klik langkah sesuai urutan yang benar (dari awal sampai akhir).</p>
+<div class="st" id="steps"></div>
+<b>Urutan kamu:</b><ol class="ord" id="mine"></ol>
+<button class="b" id="rst">Ulangi</button>
+<div class="fb" id="sf" hidden></div></div>
+<div class="c"><h2>Catatan Pengamatan</h2><ul>
+<li>Urine sapi mengandung nitrogen tinggi sehingga baik sebagai pupuk cair.</li>
+<li>Fermentasi anaerob 2–3 minggu menurunkan bau amonia dan memperkaya mikroba.</li>
+<li>Dosis aplikasi umum: 1 bagian biourine : 5–10 bagian air.</li></ul></div>
+</section>
+
+<section id="l3">
+<div class="c"><h2>Lab 3: Praktik Membuat Biogas</h2>
+<p class="sub">Digester skala rumah tangga dari feses sapi. Kerjakan 4 tahap berurutan seperti praktik di kandang.</p></div>
+<div class="c"><h2>Tahap 1: Siapkan campuran bahan</h2>
+<p class="sub">Feses sapi segar dicampur air. Kadar bahan kering (TS) ideal 5–9%.</p>
+<label><span>Feses sapi (kg)</span><b id="vgf">30</b></label><input type="range" id="gf" min="10" max="60" value="30">
+<label><span>Air (liter)</span><b id="vga">30</b></label><input type="range" id="ga" min="0" max="120" value="30">
+<div class="g"><div class="m"><small>Kadar bahan kering</small><b id="gts">-</b></div></div>
+<div class="fb" id="gmf"></div>
+<p><button class="b p" id="glk">Kunci campuran</button></p><div class="fb" id="glf" hidden></div></div>
+<div class="c"><h2>Tahap 2: Rakit instalasi</h2>
+<p class="sub">Pilih semua komponen yang benar, lalu cek rakitan.</p>
+<div class="st" id="gtl"></div>
+<p><button class="b p" id="gck">Cek rakitan</button></p><div class="fb" id="gcf" hidden></div></div>
+<div class="c"><h2>Tahap 3: Fermentasi anaerob</h2>
+<div class="fb" id="gnote" hidden></div>
+<div id="gout">
+<label><span>Hari fermentasi</span><b id="vgd">0</b></label><input type="range" id="gd" min="0" max="40" value="0">
+<label><span>Suhu digester (°C)</span><b id="vgt">32</b></label><input type="range" id="gt" min="20" max="45" value="32">
+<div class="g"><div class="m"><small>Tahap</small><b id="gph">-</b></div><div class="m"><small>Gas terkumpul (liter)</small><b id="gvl">0</b></div><div class="m"><small>Metana (CH₄)</small><b id="gme">0%</b></div></div>
+<div class="sc"><svg viewBox="0 0 300 120" width="100%" role="img" aria-label="Grafik gas terkumpul terhadap hari"><line x1="10" y1="110" x2="290" y2="110" stroke="var(--bd)"/><polyline id="gln" fill="none" stroke="var(--ac)" stroke-width="2"/><circle id="gdt" r="5" fill="var(--ac)"/></svg></div>
+</div></div>
+<div class="c"><h2>Tahap 4: Uji nyala kompor</h2>
+<p class="sub">Uji gas pada hari yang kamu pilih di Tahap 3.</p>
+<p><button class="b p" id="gb">Nyalakan kompor</button></p><div class="fb" id="gbf" hidden></div></div>
+</section>
+
+<section id="kq">
+<div class="c"><h2>Kuis Pemahaman</h2><div id="q"></div><div class="fb" id="qs" hidden></div></div>
+</section>
+</div>
+<script>
+var $=function(i){return document.getElementById(i)};
+document.querySelectorAll("#nav button").forEach(function(b){b.onclick=function(){
+document.querySelectorAll("#nav button").forEach(function(x){x.classList.remove("on")});b.classList.add("on");
+document.querySelectorAll("section").forEach(function(s){s.classList.remove("on")});$(b.dataset.t).classList.add("on")}});
+function comp(){
+var f=+$("f").value,j=+$("j").value,k=+$("k").value,d=+$("d").value,b=+$("b").value;
+["f:vf","j:vj","k:vk","d:vd","b:vb"].forEach(function(p){var a=p.split(":");$(a[1]).textContent=$(a[0]).value});
+var cn=(f*0.4+j*0.48)/(f*0.02+j*0.006);
+var s=100,tips=[];
+var dc=Math.abs(cn-27.5);
+if(cn<25||cn>30){s-=Math.min(35,dc*2.5);tips.push(cn<25?"C/N terlalu rendah: nitrogen berlebih, bau amonia. Tambah jerami/serasah.":"C/N terlalu tinggi: penguraian lambat. Tambah feses.")}else tips.push("C/N sudah ideal.");
+if(k<50||k>60){s-=Math.min(25,Math.abs(k-55)*1.2);tips.push(k<50?"Terlalu kering: percikkan air.":"Terlalu basah: kondisi anaerob, bau busuk. Tambah bahan kering.")}else tips.push("Kelembapan ideal.");
+if(d<5){s-=15;tips.push("Dekomposer kurang: proses lambat.")}else if(d>20){s-=5;tips.push("Dekomposer berlebihan: tidak ekonomis.")}
+if(b<1){s-=15;tips.push("Tanpa pembalikan, oksigen kurang. Balik tumpukan 2–3 kali/minggu.")}else if(b>5){s-=5;tips.push("Terlalu sering dibalik: panas hilang.")}
+s=Math.max(0,Math.round(s));
+var t=Math.round(30+(100-s)*0.6-d*0.6+(b<1?15:0));t=Math.max(21,t);
+$("rcn").textContent=cn.toFixed(1);$("rt").textContent=t+" hari";$("rs").textContent=s+"/100";$("rb").style.width=s+"%";
+$("rf").innerHTML="<ul><li>"+tips.join("</li><li>")+"</li></ul>";
+var kg=(f+j)*0.6,h=+$("h").value,c=+$("c").value;
+$("vh").textContent=h;$("vc").textContent=c;
+$("ky").textContent=kg.toFixed(0);$("pd").textContent=Math.round(kg*h).toLocaleString("id-ID");
+var u=Math.round(kg*h-c);$("kt").textContent=u.toLocaleString("id-ID");$("kt").style.color=u<0?"var(--bad)":"inherit";
+}
+["f","j","k","d","b","h","c"].forEach(function(i){$(i).oninput=comp});comp();
+
+var S=["Kumpulkan urine dan air kencing sapi dengan wadah/saluran penampung","Saring urine dari kotoran dan sisa pakan","Campur dengan dekomposer (EM4) dan molase","Masukkan ke drum tertutup, fermentasi 2–3 minggu","Periksa bau dan warna, lalu encerkan sebelum aplikasi ke tanaman"];
+var order=[],sh=[];
+function steps(){
+sh=S.map(function(t,i){return i}).sort(function(a,b){return (a*7%5)-(b*7%5)||a-b});
+$("steps").innerHTML="";$("mine").innerHTML="";order=[];$("sf").hidden=true;
+sh.forEach(function(i){var b=document.createElement("button");b.className="b";b.textContent=S[i];
+b.onclick=function(){if(b.disabled)return;b.disabled=true;b.style.opacity=.4;order.push(i);
+var li=document.createElement("li");li.textContent=S[i];$("mine").appendChild(li);
+if(order.length==S.length){var ok=order.every(function(v,x){return v==x});
+$("sf").hidden=false;$("sf").textContent=ok?"Benar! Urutan sudah tepat.":"Belum tepat. Ingat: tampung, saring, campur starter, fermentasi, lalu uji dan encerkan. Klik Ulangi."}};
+$("steps").appendChild(b)})}
+$("rst").onclick=steps;steps();
+
+var Q=[["Rasio C/N ideal untuk pengomposan adalah...",["5–10","25–30","60–80"],1],
+["Bau amonia kuat pada tumpukan kompos menandakan...",["Nitrogen berlebih","Kompos matang","Kekurangan air"],0],
+["Manfaat utama pembalikan tumpukan kompos adalah...",["Menambah berat","Menyuplai oksigen","Mengurangi dekomposer"],1],
+["Limbah cair ternak ruminansia yang bernilai tambah adalah...",["Biourine","Jerami kering","Tulang"],0],
+["Gas yang dihasilkan dari fermentasi anaerob kotoran ternak adalah...",["Oksigen","Biogas (metana)","Helium"],1],
+["Digester biogas harus tertutup rapat karena bakteri metanogen bekerja pada kondisi...",["Aerob (ada oksigen)","Anaerob (tanpa oksigen)","Kering total"],1],
+["Kandungan utama biogas yang dapat terbakar adalah...",["Karbon dioksida (CO₂)","Metana (CH₄)","Nitrogen (N₂)"],1],
+["Urutan tahap pembentukan biogas yang benar adalah...",["Metanogenesis, hidrolisis, asidogenesis","Hidrolisis, asidogenesis, asetogenesis, metanogenesis","Asidogenesis, hidrolisis, metanogenesis, asetogenesis"],1],
+["Perbandingan feses : air yang umum dipakai pada digester adalah...",["1 : 1 sampai 1 : 2","5 : 1","1 : 10"],0],
+["Suhu mesofilik yang optimal bagi digester biogas adalah sekitar...",["5–10 °C","30–40 °C","70–80 °C"],1],
+["Slurry (ampas biogas) sebaiknya dimanfaatkan sebagai...",["Dibuang ke sungai","Pupuk organik","Pakan langsung tanpa olahan"],1],
+["Api biogas tidak menyala pada hari-hari awal karena...",["Kandungan metana masih rendah","Kompor terlalu besar","Air terlalu bersih"],0],
+["Dampak membuang limbah ternak langsung ke sungai adalah...",["Air menjadi lebih jernih","Pencemaran dan bau akibat bahan organik","Tidak ada dampak"],1]];
+var G={m:0,t:0},Q1=1,sel={};
+var TL=[["Drum digester 200 L tertutup rapat",1],["Pipa inlet (pemasukan bahan)",1],["Pipa outlet (pengeluaran slurry)",1],["Pipa gas dengan kran",1],["Penampung gas (ban dalam/plastik)",1],["Kompor biogas",1],["Tutup drum dibiarkan berlubang untuk ventilasi",0],["Wadah terbuka tanpa tutup",0]];
+function gm(){var f=+$("gf").value,a=+$("ga").value;$("vgf").textContent=f;$("vga").textContent=a;var ts=f*16/(f+a);G.ts=ts;$("gts").textContent=ts.toFixed(1)+"%";$("gmf").textContent="Rasio feses : air = 1 : "+(a/f).toFixed(1)+". "+(ts>=5&&ts<=9?"Kadar bahan kering ideal.":ts>9?"Terlalu kental: pipa bisa tersumbat. Tambah air.":"Terlalu encer: gas per volume rendah. Kurangi air.")}
+$("gf").oninput=gm;$("ga").oninput=gm;gm();
+$("glk").onclick=function(){gm();var ok=G.ts>=5&&G.ts<=9;Q1=ok?1:0.6;G.m=1;$("glf").hidden=false;$("glf").textContent=ok?"Campuran terkunci. Kualitas bahan baik.":"Campuran terkunci, tetapi produksi gas akan turun sekitar 40%. Ulangi dengan rasio yang ideal.";gf()};
+$("gtl").innerHTML="";TL.forEach(function(t,i){var b=document.createElement("button");b.className="b";b.textContent=t[0];b.onclick=function(){sel[i]=!sel[i];b.classList.toggle("p",!!sel[i])};$("gtl").appendChild(b)});
+$("gck").onclick=function(){var miss=0,bad=0;TL.forEach(function(t,i){if(t[1]&&!sel[i])miss++;if(!t[1]&&sel[i])bad++});$("gcf").hidden=false;if(!miss&&!bad){G.t=1;$("gcf").textContent="Rakitan benar dan kedap udara. Lanjut ke fermentasi."}else{G.t=0;$("gcf").textContent=(miss?miss+" komponen penting belum dipilih. ":"")+(bad?bad+" pilihan salah: biogas dibuat tanpa oksigen sehingga digester harus tertutup rapat.":"")}gf()};
+function vol(d){var f=+$("gf").value,t=+$("gt").value,q2=t>=30&&t<=40?1:(t<30?0.4+(t-20)*0.06:0.8);return f*30*Q1*q2/(1+Math.exp(-(d-18)/4))}
+function gf(){var rd=G.m&&G.t;$("gnote").hidden=!!rd;$("gnote").textContent="Selesaikan Tahap 1 (kunci campuran) dan Tahap 2 (rakitan benar) dulu.";$("gout").style.display=rd?"block":"none";if(!rd)return;var d=+$("gd").value;$("vgd").textContent=d;$("vgt").textContent=$("gt").value;var v=vol(d);$("gvl").textContent=Math.round(v);var me=Math.min(65,8+d*3);$("gme").textContent=me+"%";$("gph").textContent=d<5?"Hidrolisis":d<10?"Asidogenesis":d<14?"Asetogenesis":"Metanogenesis";var mx=Math.max(vol(40),1),pts=[];for(var i=0;i<=40;i+=2)pts.push((10+i/40*280)+","+(110-vol(i)/mx*100));$("gln").setAttribute("points",pts.join(" "));$("gdt").setAttribute("cx",10+d/40*280);$("gdt").setAttribute("cy",110-v/mx*100)}
+$("gd").oninput=gf;$("gt").oninput=gf;gf();
+$("gb").onclick=function(){var r=$("gbf");r.hidden=false;if(!(G.m&&G.t)){r.textContent="Selesaikan Tahap 1 dan 2 dulu.";return}var d=+$("gd").value,me=Math.min(65,8+d*3),v=vol(d);if(me<45||v<5){r.textContent="Api tidak menyala. Metana baru "+me+"%. Tunggu sampai hari ke-14 atau lebih, jaga suhu 30–40 °C, lalu buang gas awal yang banyak CO₂.";return}var mnt=Math.round(v/5),lpg=v/1000*0.46;r.innerHTML="<b>Api biru menyala.</b> Gas "+Math.round(v)+" liter cukup untuk memasak sekitar "+mnt+" menit (kompor 300 L/jam). Setara kira-kira "+lpg.toFixed(2)+" kg LPG, atau Rp"+Math.round(lpg*7000).toLocaleString("id-ID")+" (asumsi Rp7.000/kg). Slurry sisa dapat dijadikan pupuk organik: nilai tambah ganda."};
+var sc=0,an=0;
+$("q").innerHTML=Q.map(function(x,i){return "<p><b>"+(i+1)+". "+x[0]+"</b></p>"+x[1].map(function(o,j){return '<button class="b opt" data-i="'+i+'" data-j="'+j+'">'+o+"</button>"}).join("")}).join("");
+document.querySelectorAll(".opt").forEach(function(b){b.onclick=function(){
+var i=+b.dataset.i,j=+b.dataset.j;var sib=document.querySelectorAll('.opt[data-i="'+i+'"]');
+if(sib[0].disabled)return;sib.forEach(function(s){s.disabled=true});
+if(j==Q[i][2]){b.classList.add("ok");sc++}else{b.classList.add("no");sib[Q[i][2]].classList.add("ok")}
+an++;if(an==Q.length){$("qs").hidden=false;$("qs").textContent="Skor kamu: "+sc+" dari "+Q.length+(sc>=10?". Bagus sekali!":". Ulangi materi lab lalu coba lagi.")}}});
+</script>
+</body>
+</html>
